@@ -300,7 +300,6 @@ function reverseInteger(num) {
 function isCreditCardNumber(ccn) {
   const arr = Array.from(String(ccn), Number);
   if (arr.length % 2 !== 0) arr.unshift(0);
-  console.log(arr);
   let result = 0;
   for (let i = 0; i < arr.length; i += 2) {
     let temp = arr[i] * 2;
@@ -326,8 +325,14 @@ function isCreditCardNumber(ccn) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  const result = (e) => {
+    let sum = Array.from(String(e), Number);
+    sum = sum.reduce((acc, value) => acc + value);
+    return String(sum).length === 1 ? sum : result(sum);
+  };
+  return result(num);
+  // throw new Error('Not implemented');
 }
 
 
