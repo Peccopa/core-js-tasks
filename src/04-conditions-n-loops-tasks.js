@@ -357,8 +357,31 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  if (str.length === 0) return true;
+  const stackBr = [];
+  const openBr = ['[', '(', '{', '<'];
+  const closeBr = [']', ')', '}', '>'];
+  const bracketsArr = Array.from(str);
+
+  for (let i = 0; i < bracketsArr.length; i += 1) {
+    const currentBr = bracketsArr[i];
+    if (openBr.includes(currentBr)) {
+      stackBr.push(currentBr);
+    } else {
+      if (stackBr.length === 0) {
+        return false;
+      }
+      const topBr = stackBr.at(-1);
+      if (closeBr.indexOf(currentBr) === openBr.indexOf(topBr)) {
+        stackBr.pop();
+      } else {
+        return false;
+      }
+    }
+  }
+  return stackBr.length === 0;
+  // throw new Error('Not implemented');
 }
 
 
@@ -382,8 +405,9 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
+  // throw new Error('Not implemented');
 }
 
 
@@ -399,8 +423,24 @@ function toNaryString(/* num, n */) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
-  throw new Error('Not implemented');
+function getCommonDirectoryPath(pathes) {
+  let result = '';
+  const str = pathes[0];
+  for (let i = 0; i < str.length; i += 1) {
+    let count = 0;
+    pathes.forEach((element) => {
+      if (element[i] === str[i]) {
+        count += 1;
+      }
+    });
+    if (count === pathes.length) {
+      result += str[i];
+    } else {
+      return result.substring(0, result.lastIndexOf('/') + 1);
+    }
+  }
+  return true;
+  // throw new Error('Not implemented');
 }
 
 
@@ -422,8 +462,19 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  const result = Array.from({ length: m1.length }, () => []);
+  for (let line = 0; line < m1.length; line += 1) {
+    for (let column = 0; column < m2[0].length; column += 1) {
+      let sum = 0;
+      for (let i = 0; i < m1[0].length; i += 1) {
+        sum += m1[line][i] * m2[i][column];
+        result[line][column] = sum;
+      }
+    }
+  }
+  return result;
+  // throw new Error('Not implemented');
 }
 
 
@@ -457,8 +508,20 @@ function getMatrixProduct(/* m1, m2 */) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(/* position */) {
-  throw new Error('Not implemented');
+function evaluateTicTacToePosition(position) {
+  const arr = position;
+  for (let i = 0; i < arr.length; i += 1) {
+    if (arr[i].join('') === 'XXX' || arr[i].join('') === '000') return arr[i][0];
+    if (arr[0][i] === arr[1][i] && arr[1][i] === arr[2][i]) return arr[0][i];
+  }
+  if (arr[0][0] === arr[1][1] && arr[1][1] === arr[2][2]) {
+    return arr[0][0];
+  }
+  if (arr[0][2] === arr[1][1] && arr[1][1] === arr[2][0]) {
+    return arr[2][0];
+  }
+  return undefined;
+// throw new Error('Not implemented');
 }
 
 
