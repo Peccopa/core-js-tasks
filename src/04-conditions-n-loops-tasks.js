@@ -513,12 +513,8 @@ function evaluateTicTacToePosition(position) {
   for (let i = 0; i < arr.length; i += 1) {
     if (arr[i].join('') === 'XXX' || arr[i].join('') === '000') return arr[i][0];
     if (arr[0][i] === arr[1][i] && arr[1][i] === arr[2][i]) return arr[0][i];
-  }
-  if (arr[0][0] === arr[1][1] && arr[1][1] === arr[2][2]) {
-    return arr[0][0];
-  }
-  if (arr[0][2] === arr[1][1] && arr[1][1] === arr[2][0]) {
-    return arr[2][0];
+    if (arr[0][0] === arr[1][1] && arr[1][1] === arr[2][2]) return arr[0][0];
+    if (arr[0][2] === arr[1][1] && arr[1][1] === arr[2][0]) return arr[2][0];
   }
   return undefined;
 // throw new Error('Not implemented');
