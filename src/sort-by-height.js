@@ -19,6 +19,7 @@ function sortByHeight(arr) {
       element === -1 ? result.push(element) : result.push(newArr.shift());
   });
   return result;
+  //done
 }
 
 module.exports = {
