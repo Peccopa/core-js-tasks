@@ -21,8 +21,7 @@ function deleteDigit(n) {
     if (value > result) result = value;
   }
   return result;
-  // throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  //done
 }
 
 module.exports = {

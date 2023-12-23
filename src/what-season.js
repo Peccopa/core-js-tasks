@@ -22,6 +22,7 @@ function getSeason(date) {
   if (date.getMonth() >= 8 && date.getMonth() <= 10) return 'autumn';
 
   return 'winter';
+  //done
 }
 
 module.exports = {
