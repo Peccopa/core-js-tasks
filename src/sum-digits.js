@@ -19,6 +19,7 @@ function getSumOfDigits(n) {
       result = result.reduce((acc, value) => acc + value);
   }
   return result;
+  //done
 }
 
 module.exports = {
