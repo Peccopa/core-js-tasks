@@ -26,6 +26,7 @@ function repeater(str, options) {
   const addStr = (addition + additionSeparator).repeat(additionRepeatTimes);
   const result = (str + addStr.substring(0, addStr.length - additionSeparator.length) + separator).repeat(repeatTimes);
   return result.substring(0, result.length - separator.length);
+  //done
 }
 
 module.exports = {
