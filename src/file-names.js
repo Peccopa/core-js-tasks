@@ -29,6 +29,7 @@ function renameFiles(names) {
       }
   }
   return result;
+  //done
 }
 
 module.exports = {
