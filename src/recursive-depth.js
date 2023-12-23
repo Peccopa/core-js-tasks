@@ -16,6 +16,7 @@ class DepthCalculator {
   calculateDepth(arr) {
     return Array.isArray(arr) ?  1 + Math.max(0, ...arr.map(arr => this.calculateDepth(arr))) : 0;
   }
+  //done
 }
 
 module.exports = {
