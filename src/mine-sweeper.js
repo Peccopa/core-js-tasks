@@ -39,6 +39,7 @@ function minesweeper(matrix) {
       }
   }
   return result;
+  //done
 }
 
 module.exports = {
