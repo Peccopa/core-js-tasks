@@ -86,8 +86,11 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a + b < c || b + c < a || c + a < b) return false;
+  if (a === 0 || b === 0 || c === 0) return false;
+  if (a === b || a === c || b === c) return true;
+  return false;
 }
 
 /**
@@ -186,8 +189,12 @@ function convertNumberToString(numberStr) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let result = '';
+  for (let i = str.length - 1; i > -1; i -= 1) {
+    result += str[i];
+  }
+  return result === str;
 }
 
 /**
@@ -204,8 +211,15 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  let result = -1;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      result = i;
+      break;
+    }
+  }
+  return result;
 }
 
 /**
@@ -223,8 +237,17 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let result = false;
+  const str = `${num}`;
+  const letter = `${digit}`;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      result = true;
+      break;
+    }
+  }
+  return result;
 }
 
 /**
