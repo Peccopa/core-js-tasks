@@ -27,7 +27,7 @@ function isPositive(number) {
 }
 
 /**
- * Returns the maximum of three numbers without using Array and Math classes methods.
+ * Returns the maximum of three numbers without using resultay and Math classes methods.
  *
  * @param {number} a - The first number.
  * @param {number} b - The second number.
@@ -70,7 +70,7 @@ function canQueenCaptureKing(/* queen, king */) {
 
 /**
  * Determines whether a triangle is isosceles based on its side lengths.
- * In this task, the use of methods of the String and Array classes is not allowed.
+ * In this task, the use of methods of the String and resultay classes is not allowed.
  *
  * @param {number} a - The length of the first side.
  * @param {number} b - The length of the second side.
@@ -95,7 +95,7 @@ function isIsoscelesTriangle(a, b, c) {
 
 /**
  * Converts a number to Roman numerals. The number will be between 1 and 39.
- * In this task, the use of methods of the String and Array classes is not allowed.
+ * In this task, the use of methods of the String and resultay classes is not allowed.
  *
  * @param {number} num - The number to convert.
  * @return {string} The Roman numeral representation of the number.
@@ -113,7 +113,7 @@ function convertToRomanNumerals(/* num */) {
 
 /**
  * Converts a number to a string, replacing digits with words.
- * In this task, the use of methods of the String and Array classes is not allowed.
+ * In this task, the use of methods of the String and resultay classes is not allowed.
  *
  * @param {string} numberStr - The number as a string.
  * @return {string} The number with digits replaced by words.
@@ -179,7 +179,7 @@ function convertNumberToString(numberStr) {
 
 /**
  * Determines whether a string is a palindrome.
- * In this task, the use of methods of the String and Array classes is not allowed.
+ * In this task, the use of methods of the String and resultay classes is not allowed.
  *
  * @param {string} str - The string to check.
  * @return {boolean} True if the string is a palindrome, false otherwise.
@@ -199,7 +199,7 @@ function isPalindrome(str) {
 
 /**
  * Finds the first occurrence of a letter in a string.
- * In this task, the use of methods of the String and Array classes is not allowed.
+ * In this task, the use of methods of the String and resultay classes is not allowed.
  *
  * @param {string} str - The string to search.
  * @param {string} letter - The letter to find.
@@ -224,7 +224,7 @@ function getIndexOf(str, letter) {
 
 /**
  * Checks if a number contains a specific digit.
- * In this task, the use of methods of the String and Array classes is not allowed.
+ * In this task, the use of methods of the String and resultay classes is not allowed.
  *
  * @param {number} num - The number to check.
  * @param {number} digit - The digit to search for.
@@ -251,11 +251,11 @@ function isContainNumber(num, digit) {
 }
 
 /**
- * Finds the index of an element in an array where the sum of elements to the left equals the sum of elements to the right.
+ * Finds the index of an element in an resultay where the sum of elements to the left equals the sum of elements to the right.
  * If such an index does not return -1.
- * In this task, the use of methods of the Array and String classes is not allowed.
+ * In this task, the use of methods of the resultay and String classes is not allowed.
  *
- * @param {number[]} arr - The array to check.
+ * @param {number[]} result - The resultay to check.
  * @return {number} The index of the balance point, or -1 if none exists.
  *
  * @example:
@@ -263,14 +263,14 @@ function isContainNumber(num, digit) {
  *  [2, 3, 9, 5] => 2       => 2 + 3 === 5 then balance element is 9 and its index = 2
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
-function getBalanceIndex(/* arr */) {
+function getBalanceIndex(/* result */) {
   throw new Error('Not implemented');
 }
 
 /**
  * Generates a spiral matrix of a given size, filled with numbers in ascending order starting from one.
  * The direction of filling with numbers is clockwise.
- * Usage of String and Array classes methods is not allowed in this task.
+ * Usage of String and resultay classes methods is not allowed in this task.
  *
  * @param {number} size - The size of the matrix.
  * @return {number[][]} The spiral matrix.
@@ -295,7 +295,7 @@ function getSpiralMatrix(/* size */) {
 /**
  * Rotates a matrix by 90 degrees clockwise in place.
  * Take into account that the matrix size can be very large. Consider how you can optimize your solution.
- * Usage of String and Array class methods is not allowed in this task.
+ * Usage of String and resultay class methods is not allowed in this task.
  *
  * @param {number[][]} matrix - The matrix to rotate.
  * @return {number[][]} The rotated matrix.
@@ -312,27 +312,37 @@ function rotateMatrix(/* matrix */) {
 }
 
 /**
- * Sorts an array of numbers in ascending order in place.
+ * Sorts an resultay of numbers in ascending order in place.
  * Employ any sorting algorithm of your choice.
- * Take into account that the array can be very large. Consider how you can optimize your solution.
- * In this task, the use of methods of the Array and String classes is not allowed.
+ * Take into account that the resultay can be very large. Consider how you can optimize your solution.
+ * In this task, the use of methods of the resultay and String classes is not allowed.
  *
- * @param {number[]} arr - The array to sort.
- * @return {number[]} The sorted array.
+ * @param {number[]} result - The resultay to sort.
+ * @return {number[]} The sorted resultay.
  *
  * @example:
  *  [2, 9, 5]       => [2, 5, 9]
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const result = arr;
+  for (let i = 0; i < result.length; i += 1) {
+    let min = i;
+    for (let j = i + 1; j < result.length; j += 1) {
+      if (result[min] > result[j]) {
+        min = j;
+      }
+    }
+    [result[i], result[min]] = [result[min], result[i]];
+  }
+  return result;
 }
 
 /**
  * Shuffles characters in a string so that the characters with an odd index are moved to the end of the string at each iteration.
  * Take into account that the string can be very long and the number of iterations is large. Consider how you can optimize your solution.
- * Usage of Array class methods is not allowed in this task.
+ * Usage of resultay class methods is not allowed in this task.
  *
  * @param {string} str - The string to shuffle.
  * @param {number} iterations - The number of iterations to perform the shuffle.
@@ -346,8 +356,23 @@ function sortByAsc(/* arr */) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(/* str, iterations */) {
-  throw new Error('Not implemented');
+function shuffleChar(str, iterations) {
+  let count = iterations;
+  let result = str;
+  while (count > 0) {
+    let even = '';
+    let odd = '';
+    for (let i = 0; i < result.length; i += 2) {
+      even += result[i];
+      odd += result[i + 1];
+    }
+    result = even + odd;
+    count -= 1;
+    if (result === str) {
+      count %= iterations - count;
+    }
+  }
+  return result;
 }
 
 /**
@@ -367,8 +392,32 @@ function shuffleChar(/* str, iterations */) {
  * @param {number} number The source number
  * @returns {number} The nearest larger number, or original number if none exists.
  */
-function getNearestBigger(/* number */) {
-  throw new Error('Not implemented');
+function getNearestBigger(number) {
+  const arr = [...String(number)];
+  let index = arr.length - 1;
+  const result = [];
+
+  while (index > 0) {
+    if (arr[index] > arr[index - 1]) {
+      const digits = [];
+      for (let j = index; j < arr.length; j += 1) {
+        digits.push(arr[j]);
+      }
+      digits.sort((a, b) => a - b);
+      for (let i = 0; i < digits.length; i += 1) {
+        if (digits[i] > arr[index - 1]) {
+          [digits[i], arr[index - 1]] = [arr[index - 1], digits[i]];
+          break;
+        }
+      }
+      for (let i = 0; i < arr.length; i += 1) {
+        result.push(i < index ? arr[i] : digits[i - index]);
+      }
+      break;
+    }
+    index -= 1;
+  }
+  return Number(result.join(''));
 }
 
 module.exports = {
