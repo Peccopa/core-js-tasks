@@ -319,8 +319,19 @@ function isContainNumber(num, digit) {
  *  [2, 3, 9, 5] => 2       => 2 + 3 === 5 then balance element is 9 and its index = 2
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
-function getBalanceIndex(/* result */) {
-  throw new Error('Not implemented');
+function getBalanceIndex(arr) {
+  let left = 0;
+  for (let i = 0; i < arr.length; i += 1) {
+    let right = 0;
+    left += arr[i];
+    for (let j = arr.length - 1; j > i + 1; j -= 1) {
+      right += arr[j];
+      if (left === right && j - i === 2) {
+        return i + 1;
+      }
+    }
+  }
+  return -1;
 }
 
 /**
@@ -344,8 +355,45 @@ function getBalanceIndex(/* result */) {
  *          [10, 9,  8,  7]
  *        ]
  */
-function getSpiralMatrix(/* size */) {
-  throw new Error('Not implemented');
+function getSpiralMatrix(size) {
+  const arr = new Array(size);
+  for (let i = 0; i < size; i += 1) {
+    arr[i] = new Array(size);
+  }
+  const l = size;
+  let w = 0;
+  let h = 0;
+  let n = 0;
+  let c = 0;
+
+  while (c < size) {
+    for (w; w < l - 1; w += 1) {
+      if (!arr[h + c][w]) {
+        n += 1;
+        arr[h + c][w] = n;
+      }
+    }
+    for (h; h < l - 1; h += 1) {
+      if (!arr[h][w - c]) {
+        n += 1;
+        arr[h][w - c] = n;
+      }
+    }
+    for (w; w > 0; w -= 1) {
+      if (!arr[h - c][w]) {
+        n += 1;
+        arr[h - c][w] = n;
+      }
+    }
+    for (h; h > w > 0; h -= 1) {
+      if (!arr[h][w + c]) {
+        n += 1;
+        arr[h][w + c] = n;
+      }
+    }
+    c += 1;
+  }
+  return arr;
 }
 
 /**
@@ -363,8 +411,21 @@ function getSpiralMatrix(/* size */) {
  *    [7, 8, 9]         [9, 6, 3]
  *  ]                 ]
  */
-function rotateMatrix(/* matrix */) {
-  throw new Error('Not implemented');
+function rotateMatrix(matrix) {
+  const result = matrix;
+  const arr = [];
+  for (let i = 0; i < result.length; i += 1) {
+    arr[i] = [];
+    for (let j = result[0].length - 1; j >= 0; j -= 1) {
+      arr[i][result[0].length - j - 1] = result[j][i];
+    }
+  }
+  for (let i = 0; i < result.length; i += 1) {
+    for (let j = 0; j < result[0].length; j += 1) {
+      result[i][j] = arr[i][j];
+    }
+  }
+  return result;
 }
 
 /**
