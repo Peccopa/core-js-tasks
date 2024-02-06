@@ -503,8 +503,19 @@ function findCommonElements(/* arr1, arr2 */) {
  *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => 2
  *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => 3
  */
-function findLongestIncreasingSubsequence(/* nums */) {
-  throw new Error('Not implemented');
+function findLongestIncreasingSubsequence(nums) {
+  let result = 0;
+  let count = 0;
+  nums.reduce((acc, value, index) => {
+    if (nums[index] < nums[index + 1]) {
+      count += 1;
+    } else {
+      if (count > result) result = count;
+      count = 0;
+    }
+    return count;
+  }, 0);
+  return result + 1;
 }
 
 /**
@@ -542,8 +553,8 @@ function propagateItemsByPositionIndex(arr) {
  *    shiftArray(['a', 'b', 'c', 'd'], -1) => ['b', 'c', 'd', 'a']
  *    shiftArray([10, 20, 30, 40, 50], -3) => [40, 50, 10, 20, 30]
  */
-function shiftArray(/* arr, n */) {
-  throw new Error('Not implemented');
+function shiftArray(arr, n) {
+  return arr.splice(-n).concat(arr);
 }
 
 /**
@@ -594,8 +605,15 @@ function sortDigitNamesByNumericOrder(arr) {
  *   swapHeadAndTail([]) => []
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const arrLength = arr.length;
+  const array = arr;
+  const half = Math.ceil(arrLength / 2);
+  const newArray = array.splice(half);
+  if (arrLength % 2 !== 0) {
+    newArray.push(array.pop());
+  }
+  return newArray.concat(array);
 }
 
 module.exports = {
