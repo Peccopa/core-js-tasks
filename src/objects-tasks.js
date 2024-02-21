@@ -19,9 +19,11 @@
  */
 function shallowCopy(obj) {
   // return JSON.parse(JSON.stringify(obj));
-  return structuredClone(obj);
+  // return structuredClone(obj);
   // return { ...obj };
-  // assign
+  const result = {};
+  Object.assign(result, obj);
+  return result;
 }
 
 /**
