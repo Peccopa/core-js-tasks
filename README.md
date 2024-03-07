@@ -1,4 +1,4 @@
-# BasicJS
+# basic-js
 
 ⚠️ DO NOT SUBMIT PULL REQUESTS TO THIS REPO ⚠️
 
